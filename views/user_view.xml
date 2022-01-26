@@ -1,0 +1,41 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="enter.user_list">
+      <field name="name">User List</field>
+      <field name="model">enter.user_model</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="surname"/>
+          <field name="username"/>
+          <field name="age"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="enter.user_form">
+      <field name="name">User Form</field>
+      <field name="model">enter.user_model</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="name"/>
+            <field name="surname"/>
+            <field name="username"/>
+            <field name="age"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="enter.action_window">
+      <field name="name">User</field>
+      <field name="res_model">enter.user_model</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="User List" id="enter.menu_list" parent="enter.users" action="enter.action_window"/>
+
+  </data>
+</odoo>

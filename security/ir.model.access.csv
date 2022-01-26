@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_enter_enter,enter.enter,model_enter_enter,base.group_user,1,1,1,1
+access_enter_user_model,enter.enter,model_enter_user_model,base.group_user,1,1,1,1
+access_enter_game_model,enter.enter,model_enter_game_model,base.group_user,1,1,1,1
+access_enter_game_rental_model,enter.enter,model_enter_game_rental_model,base.group_user,1,1,1,1

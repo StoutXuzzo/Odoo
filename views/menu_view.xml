@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <menuitem name="Entertainment" id="enter.menu_root"/>
+
+        <menuitem name="Users" id="enter.users" parent="enter.menu_root"/>
+    </data>
+</odoo>
