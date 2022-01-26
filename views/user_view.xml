@@ -24,18 +24,19 @@
             <field name="surname"/>
             <field name="username"/>
             <field name="age"/>
+            <field name="rental_ids"/>
           </group>
         </form>
       </field>
     </record>
 
-    <record model="ir.actions.act_window" id="enter.action_window">
+    <record model="ir.actions.act_window" id="enter.action_window_user">
       <field name="name">User</field>
       <field name="res_model">enter.user_model</field>
       <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem name="User List" id="enter.menu_list" parent="enter.users" action="enter.action_window"/>
+    <menuitem name="User List" id="enter.user_menu" parent="enter.users" action="enter.action_window_user"/>
 
   </data>
 </odoo>

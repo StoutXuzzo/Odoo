@@ -7,8 +7,8 @@ class GameModel(models.Model):
     _name = "enter.game_model"
     _description = "Game Model"
 
-    title = fields.Char("Title", default="HoseCraft", required=True)
-    genres = fields.Char("Genre", default="FPS", required=True)
+    name = fields.Char("Title", default="HoseCraft", required=True)
+    genre = fields.Char("Genre", default="FPS", required=True)
     
     min_age = fields.Integer("Min Age", required = True, default=16)
     

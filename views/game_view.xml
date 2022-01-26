@@ -1,0 +1,39 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="enter.game_list">
+      <field name="name">Game List</field>
+      <field name="model">enter.game_model</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="genre"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="enter.game_form">
+      <field name="name">Game Form</field>
+      <field name="model">enter.game_model</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="name"/>
+            <field name="genre"/>
+            <field name="min_age"/>
+            <field name="rental_ids"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="enter.action_window_game">
+      <field name="name">Game</field>
+      <field name="res_model">enter.game_model</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Game List" id="enter.game_menu" parent="enter.games" action="enter.action_window_game"/>
+
+  </data>
+</odoo>
