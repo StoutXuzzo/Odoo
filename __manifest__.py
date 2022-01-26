@@ -28,6 +28,8 @@
         'views/menu_view.xml',
         'views/user_view.xml',
         'views/game_view.xml',
+        'views/book_view.xml',
+        'views/film_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

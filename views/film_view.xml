@@ -1,0 +1,40 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="enter.film_list">
+      <field name="name">Film List</field>
+      <field name="model">enter.film_model</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="genre"/>
+            <field name="producer"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="enter.film_form">
+      <field name="name">Film Form</field>
+      <field name="model">enter.film_model</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="name"/>
+            <field name="genre"/>
+            <field name="producer"/>
+            <field name="rental_ids"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="enter.action_window_film">
+      <field name="name">Film</field>
+      <field name="res_model">enter.film_model</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Film List" id="enter.film_menu" parent="enter.films" action="enter.action_window_film"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,40 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="enter.book_list">
+      <field name="name">Book List</field>
+      <field name="model">enter.book_model</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="genre"/>
+            <field name="author"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="enter.book_form">
+      <field name="name">Book Form</field>
+      <field name="model">enter.book_model</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="name"/>
+            <field name="genre"/>
+            <field name="author"/>
+            <field name="rental_ids"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="enter.action_window_book">
+      <field name="name">Book</field>
+      <field name="res_model">enter.book_model</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Book List" id="enter.book_menu" parent="enter.books" action="enter.action_window_book"/>
+
+  </data>
+</odoo>

@@ -6,3 +6,6 @@ access_enter_game_rental_model,enter.enter,model_enter_game_rental_model,base.gr
 
 access_enter_book_model,enter.enter,model_enter_book_model,base.group_user,1,1,1,1
 access_enter_book_rental_model,enter.enter,model_enter_book_rental_model,base.group_user,1,1,1,1
+
+access_enter_film_model,enter.enter,model_enter_film_model,base.group_user,1,1,1,1
+access_enter_film_rental_model,enter.enter,model_enter_film_rental_model,base.group_user,1,1,1,1

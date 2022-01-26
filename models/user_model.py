@@ -12,4 +12,6 @@ class UserModel(models.Model):
     username = fields.Char("Username", required=True, default="Juan123")
     age = fields.Integer("Age")
 
-    rental_ids = fields.One2many("enter.game_rental_model", "user_id", string = "Rentals")
+    game_rental_ids = fields.One2many("enter.game_rental_model", "user_id", string = "Games")
+    book_rental_ids = fields.One2many("enter.book_rental_model", "user_id", string = "Books")
+    film_rental_ids = fields.One2many("enter.film_rental_model", "user_id", string = "Films")

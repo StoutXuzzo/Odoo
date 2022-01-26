@@ -24,7 +24,9 @@
             <field name="surname"/>
             <field name="username"/>
             <field name="age"/>
-            <field name="rental_ids"/>
+            <field name="game_rental_ids"/>
+            <field name="book_rental_ids"/>
+            <field name="film_rental_ids"/>
           </group>
         </form>
       </field>
