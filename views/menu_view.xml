@@ -6,5 +6,6 @@
         <menuitem name="Games" id="enter.games" parent="enter.menu_root"/>
         <menuitem name="Books" id="enter.books" parent="enter.menu_root"/>
         <menuitem name="Films" id="enter.films" parent="enter.menu_root"/>
+        <menuitem name="Game Rentals" id="enter.game_rentals" parent="enter.menu_root"/>
     </data>
 </odoo>

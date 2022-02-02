@@ -1,0 +1,48 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="enter.game_rental_calendar">
+      <field name="name">Game Rental Calendar</field>
+      <field name="model">enter.game_rental_model</field>
+      <field name="arch" type="xml">
+        <calendar date_start="date" color="name" mode="month" event_open_popup="True" form_view_id="enter.game_rental_form" quick_add="False">
+          <field name="name"/>
+        </calendar>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="enter.game_rental_list">
+      <field name="name">Game Rental List</field>
+      <field name="model">enter.game_rental_model</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="date"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="enter.game_rental_form">
+      <field name="name">Game Rental Form</field>
+      <field name="model">enter.game_rental_model</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="user_id"/>
+            <field name="game_id"/>
+            <field name="date"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="enter.action_window_game_rental">
+      <field name="name">Game Rental</field>
+      <field name="res_model">enter.game_rental_model</field>
+      <field name="view_mode">tree,form,calendar</field>
+    </record>
+
+    <menuitem name="Game Rental List" id="enter.game_rental_menu" parent="enter.game_rentals" action="enter.action_window_game_rental"/>
+
+  </data>
+</odoo>

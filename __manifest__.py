@@ -30,6 +30,7 @@
         'views/game_view.xml',
         'views/book_view.xml',
         'views/film_view.xml',
+        'views/game_rental_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

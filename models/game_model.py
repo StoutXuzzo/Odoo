@@ -13,3 +13,8 @@ class GameModel(models.Model):
     min_age = fields.Integer("Min Age", required = True, default=16)
     
     rental_ids = fields.One2many("enter.game_rental_model", "game_id", string = "Rentals")
+    
+    # custom form
+    # usar widgets
+    # filtros
+    # Custom domain

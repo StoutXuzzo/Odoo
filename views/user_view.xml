@@ -1,11 +1,64 @@
 <odoo>
   <data>
 
+    <!-- refrsh -->
+
+    <record model="ir.ui.view" id="enter.user_pivot">
+      <field name="name">User Pivot</field>
+      <field name="model">enter.user_model</field>
+      <field name="arch" type="xml">
+        <pivot>
+          <field name="username" type="row"/>
+          <field name="name"/>
+          <field name="surname"/>
+          <field name="state"/>
+          <field name="rental_count" type="measure"/>
+        </pivot>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="enter.user_kanban">
+      <field name="name">User Kanban</field>
+      <field name="model">enter.user_model</field>
+      <field name="arch" type="xml">
+        <kanban class="o_res_partner_kanban">
+          <field name="icon"/>
+          <field name="name"/>
+          <field name="surname"/>
+          <field name="username"/>
+          <field name="age"/>
+          <field name="password"/>
+
+          <templates>
+            <t t-name="kanban-box">
+              <div t-attf-class="oe_kanban_global_clicks">
+                <div class="o_kanban_image">
+                  <field name="icon" nolabel="1" widget="image" class="oe_right oe_avatar"/>
+                </div>
+              </div>
+            </t>
+          </templates>
+
+        </kanban>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="enter.user_graph">
+      <field name="name">User Graph</field>
+      <field name="model">enter.user_model</field>
+      <field name="arch" type="xml">
+        <graph type="bar">
+          <field name="username" type="row"/>
+          <field name="rental_count" type="measure"/>
+        </graph>
+      </field>
+    </record>
+
     <record model="ir.ui.view" id="enter.user_list">
       <field name="name">User List</field>
       <field name="model">enter.user_model</field>
       <field name="arch" type="xml">
-        <tree>
+        <tree decoration-danger="age &lt; 18">
           <field name="name"/>
           <field name="surname"/>
           <field name="username"/>
@@ -19,15 +72,74 @@
       <field name="model">enter.user_model</field>
       <field name="arch" type="xml">
         <form>
-          <group>
-            <field name="name"/>
-            <field name="surname"/>
-            <field name="username"/>
-            <field name="age"/>
-            <field name="game_rental_ids"/>
-            <field name="book_rental_ids"/>
-            <field name="film_rental_ids"/>
-          </group>
+
+          <header>
+            <button name="validate" type="object" string="Validate" class="oe_highlight" states="N"/>
+            <field name="state" widget="statusbar"></field>
+          </header>
+
+          <sheet>
+            <notebook>
+
+              <page string="Personal Data">
+                <group>
+
+                  <label for="username" class="oe_edit_only"/>
+                  <h1><field name="username" attrs="{'readonly': [('state','=', 'V')]}"/></h1>
+
+                  <field name="name"/>
+                  <field name="surname"/>
+                  <field name="age"/>
+                  <field name="password"/>
+                </group>
+              </page>
+
+              <page string="Rentals" >
+                <group>
+
+                  <field name="game_rental_ids" attrs="{'invisible': [('state','=', 'N')]}">
+                    <tree>
+                      <field name="game_id"/>
+                    </tree>
+
+                    <form>
+                      <group>
+                        <field name="game_id"/>
+                        <field name="date"/>
+                      </group>
+                    </form>
+                  </field>
+
+                  <field name="book_rental_ids" attrs="{'invisible': [('state','=', 'N')]}">
+                    <tree>
+                      <field name="book_id"/>
+                    </tree>
+
+                    <form>
+                      <group>
+                        <field name="book_id"/>
+                        <field name="date"/>
+                      </group>
+                    </form>
+                  </field>
+
+                  <field name="film_rental_ids" attrs="{'invisible': [('state','=', 'N')]}">
+                    <tree>
+                      <field name="film_id"/>
+                    </tree>
+
+                    <form>
+                      <group>
+                        <field name="film_id"/>
+                        <field name="date"/>
+                      </group>
+                    </form>
+                  </field>
+
+                </group>
+              </page>
+            </notebook>
+          </sheet>
         </form>
       </field>
     </record>
@@ -35,7 +147,7 @@
     <record model="ir.actions.act_window" id="enter.action_window_user">
       <field name="name">User</field>
       <field name="res_model">enter.user_model</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,graph,kanban,pivot</field>
     </record>
 
     <menuitem name="User List" id="enter.user_menu" parent="enter.users" action="enter.action_window_user"/>

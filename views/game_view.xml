@@ -21,7 +21,18 @@
             <field name="name"/>
             <field name="genre"/>
             <field name="min_age"/>
-            <field name="rental_ids"/>
+            <field name="rental_ids">
+              <tree>
+                <field name="user_id"/>
+              </tree>
+
+              <form>
+                <group>
+                  <field name="user_id"/>
+                  <field name="date"/>
+                </group>
+              </form>
+            </field>
           </group>
         </form>
       </field>
