@@ -91,6 +91,9 @@
                   <field name="surname"/>
                   <field name="age"/>
                   <field name="password"/>
+
+                  <button name="generate_password" type="object" string="Generate New Password" class="oe_highlight"/>
+
                 </group>
               </page>
 
@@ -104,6 +107,7 @@
 
                     <form>
                       <group>
+                        <field name="find_genre"/>
                         <field name="game_id"/>
                         <field name="date"/>
                       </group>

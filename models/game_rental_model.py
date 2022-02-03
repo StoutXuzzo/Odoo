@@ -14,6 +14,18 @@ class GameRentalModel(models.Model):
     game_id = fields.Many2one("enter.game_model", string = "Game", help = "Game reference.", required=True)
     user_id = fields.Many2one("enter.user_model", string = "User", help = "User reference.", required=True)
 
+    find_genre = fields.Selection(string="Genre", selection=[("S", "Survival"), ("P", "Puzzle"), ("F", "FPS")], store=False)
+
+    @api.onchange('find_genre')
+    def onchange_genre(self):
+        self.game_id = None
+        if self.find_genre:
+            domain = {'game_id': [('genre', '=', self.find_genre)]}
+        else:
+            domain = {'game_id': [('genre', '!=', '*ihg')]}
+
+        return {'domain': domain}
+
     @api.constrains("user_id")
     def _check_age(self):
         if self.user_id.age < self.game_id.min_age:
